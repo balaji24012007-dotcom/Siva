@@ -1,0 +1,31 @@
+#include <stdio.h>
+
+int main() {
+    int n;
+    long long target;
+
+    printf("Enter number of contacts: ");
+    scanf("%d", &n);
+
+    long long phonebook[n];
+
+    // Input contact numbers
+    for (int i = 0; i < n; i++) {
+        printf("Enter contact number %d: ", i + 1);
+        scanf("%lld", &phonebook[i]);
+    }
+
+    printf("Enter contact number to search: ");
+    scanf("%lld", &target);
+
+    // Linear search
+    for (int i = 0; i < n; i++) {
+        if (phonebook[i] == target) {
+            printf("Contact number found at position %d\n", i + 1);
+            return 0;
+        }
+    }
+
+    printf("Contact number not found\n");
+    return 0;
+}
