@@ -1,0 +1,28 @@
+#include <stdio.h>
+
+int main() {
+    int n;
+    printf("Enter number of students: ");
+    scanf("%d", &n);
+
+    int roll[n];
+
+    // Input roll numbers
+    for (int i = 0; i < n; i++) {
+        printf("Enter roll number %d: ", i + 1);
+        scanf("%d", &roll[i]);
+    }
+
+    // Check for duplicates
+    for (int i = 0; i < n; i++) {
+        for (int j = i + 1; j < n; j++) {
+            if (roll[i] == roll[j]) {
+                printf("Duplicate roll number found: %d\n", roll[i]);
+                return 0;
+            }
+        }
+    }
+
+    printf("No duplicate roll numbers found.\n");
+    return 0;
+}
