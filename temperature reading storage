@@ -1,0 +1,23 @@
+#include <stdio.h>
+
+int main() {
+    int n;
+    printf("Enter number of readings: ");
+    scanf("%d", &n);
+
+    float temperatures[n];   // array to store readings
+
+    // Input temperatures
+    for (int i = 0; i < n; i++) {
+        printf("Enter temperature %d: ", i + 1);
+        scanf("%f", &temperatures[i]);
+    }
+
+    // Display temperatures
+    printf("\nTemperature readings:\n");
+    for (int i = 0; i < n; i++) {
+        printf("%.2f\n", temperatures[i]);
+    }
+
+    return 0;
+}
