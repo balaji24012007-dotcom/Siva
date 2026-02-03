@@ -1,0 +1,17 @@
+#include <stdio.h>
+#include <stdbool.h>
+
+int main() {
+    int motionCount = 0;   // O(1) space
+
+    // Simulated sensor loop
+    while (true) {
+        bool sensorTriggered = readMotionSensor(); // hardware-specific
+
+        if (sensorTriggered) {
+            motionCount++;
+        }
+    }
+
+    return 0;
+}
