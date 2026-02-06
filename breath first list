@@ -1,0 +1,56 @@
+#include <stdio.h>
+
+int N, matrix[20][20], visited[20];
+
+// Depth First Search - Goes deep into the graph
+void DFS(int current) {
+    printf("%d ", current);
+    visited[current] = 1;
+
+    for (int i = 0; i < N; i++) {
+        if (matrix[current][i] == 1 && !visited[i]) {
+            DFS(i);
+        }
+    }
+}
+
+// Breadth First Search - Visits neighbors level by level
+void BFS(int start) {
+    int queue[20], front = 0, rear = 0;
+    int v[20] = {0}; // Local visited array for BFS
+
+    queue[rear++] = start;
+    v[start] = 1;
+
+    while (front < rear) {
+        int current = queue[front++];
+        printf("%d ", current);
+
+        for (int i = 0; i < N; i++) {
+            if (matrix[current][i] == 1 && !v[i]) {
+                queue[rear++] = i;
+                v[i] = 1;
+            }
+        }
+    }
+}
+
+int main() {
+    int S;
+    
+    // Inputs
+    scanf("%d", &N);
+    for (int i = 0; i < N; i++)
+        for (int j = 0; j < N; j++)
+            scanf("%d", &matrix[i][j]);
+    scanf("%d", &S);
+
+    // Outputs
+    printf("BFS traversal order: ");
+    BFS(S);
+    
+    printf("\nDFS traversal order: ");
+    DFS(S);
+
+    return 0;
+}
